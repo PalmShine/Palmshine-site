@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing – PalmShine</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+.pricing-section { margin-bottom: 3.5rem; }
+.pricing-section-title { font-size: 1.3rem; font-weight: 800; font-family: 'Poppins', sans-serif; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.6rem; }
+.pricing-section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; }
+.price-table { width: 100%; border-collapse: collapse; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.price-table th { background: var(--blue); color: white; padding: 0.85rem 1.25rem; text-align: left; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; }
+.price-table th:last-child { text-align: right; }
+.price-table td { padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; background: white; }
+.price-table tr:last-child td { border-bottom: none; }
+.price-table tr:nth-child(even) td { background: var(--off-white); }
+.price-table td:last-child { text-align: right; font-weight: 800; font-family: 'Poppins', sans-serif; color: var(--blue); font-size: 1rem; }
+.includes-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.includes-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--text); background: var(--off-white); padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid var(--border); }
+.includes-item span { color: var(--success); font-weight: 700; }
+.section-divider { height: 1px; background: var(--border); margin: 3rem 0; }
+.addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+.addon-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+.addon-name { font-size: 0.88rem; font-weight: 600; font-family: 'Poppins', sans-serif; }
+.addon-price { font-size: 0.95rem; font-weight: 800; color: var(--pink); font-family: 'Poppins', sans-serif; white-space: nowrap; margin-left: 0.5rem; }
+.premium-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.premium-card { background: linear-gradient(135deg, #001f5c, #0057D9); color: white; border-radius: var(--radius); padding: 1.25rem; }
+.premium-name { font-size: 0.88rem; font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 0.3rem; }
+.premium-price { font-size: 1.2rem; font-weight: 900; font-family: 'Poppins', sans-serif; color: #B2F5EA; }
+.club-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.club-tab { padding: 0.5rem 1.25rem; font-size: 0.88rem; font-weight: 700; border: 2px solid var(--border); border-radius: 100px; background: white; cursor: pointer; font-family: 'Poppins', sans-serif; color: var(--muted); transition: all 0.18s; }
+.club-tab.active { border-color: var(--pink); color: var(--pink); background: #fce7f3; }
+.club-panel { display: none; }
+.club-panel.active { display: block; }
+.avg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.avg-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+.avg-service { font-size: 0.78rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Poppins', sans-serif; margin-bottom: 0.4rem; }
+.avg-price { font-size: 1.5rem; font-weight: 900; color: var(--blue); font-family: 'Poppins', sans-serif; }
+.faq-item { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 0.75rem; }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 0.92rem; background: white; border: none; width: 100%; text-align: left; }
+.faq-q:hover { background: var(--off-white); }
+.faq-a { padding: 0 1.25rem 1rem; font-size: 0.88rem; color: var(--muted); line-height: 1.75; display: none; background: white; }
+.faq-a.open { display: block; }
+.faq-icon { color: var(--blue); font-weight: 700; font-size: 1.2rem; flex-shrink: 0; }
+.sticky-book { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 100; }
+.garage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:600px){ .garage-grid { grid-template-columns: 1fr; } .sticky-book { bottom: 1rem; right: 1rem; } }
+</style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<div class="page-hero">
+  <h1>Clear, Simple Pricing</h1>
+  <p>No quotes needed. No phone calls. See your price, pick your service, book instantly.</p>
+</div>
+
+<div style="background:var(--yellow);padding:0.85rem 2rem;text-align:center;">
+  <strong style="font-family:'Poppins',sans-serif;font-size:0.92rem;color:#1a1a1a;">🌟 New client intro offer — <a href="booking.html" style="color:var(--blue);text-decoration:underline;">Book your first clean for $99 →</a></strong>
+</div>
+
+<div class="section">
+  <div class="container">
+
+    <!-- STANDARD -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">🧼 Standard Home Cleaning</div>
+      <div class="pricing-section-sub">Full home clean · 50-Point Shine Standard · Average job time: 3–5 hours</div>
+      <table class="price-table">
+        <thead><tr><th>Home Size</th><th style="text-align:right;">Price</th></tr></thead>
+        <tbody>
+          <tr><td>Studio / 1 Bed / 1 Bath</td><td>$159</td></tr>
+          <tr><td>2 Bed / 1–2 Bath</td><td>$179</td></tr>
+          <tr><td>3 Bed / 2 Bath</td><td>$209</td></tr>
+          <tr><td>4 Bed / 2–3 Bath</td><td>$239</td></tr>
+          <tr><td>5 Bed+</td><td>$279+</td></tr>
+        </tbody>
+      </table>
+      <div class="includes-list">
+        <div class="includes-item"><span>✓</span> Kitchen cleaning</div>
+        <div class="includes-item"><span>✓</span> Bathroom cleaning</div>
+        <div class="includes-item"><span>✓</span> Dusting surfaces</div>
+        <div class="includes-item"><span>✓</span> Vacuum + mop floors</div>
+        <div class="includes-item"><span>✓</span> Trash removal</div>
+        <div class="includes-item"><span>✓</span> Light straightening</div>
+      </div>
+      <div style="margin-top:1.25rem;"><a href="booking.html?service=standard" class="btn btn-blue btn-md">Book Standard Clean →</a></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- DEEP CLEAN -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">✨ Deep Cleaning</div>
+      <div class="pricing-section-sub">First time clean · buildup · seasonal reset · Everything in Standard plus detailed deep work</div>
+      <table class="price-table">
+        <thead><tr><th>Home Size</th><th style="text-align:right;">Price</th></tr></thead>
+        <tbody>
+          <tr><td>Studio / 1 Bed</td><td>$219</td></tr>
+          <tr><td>2 Bed</td><td>$249</td></tr>
+          <tr><td>3 Bed</td><td>$289</td></tr>
+          <tr><td>4 Bed</td><td>$329</td></tr>
+          <tr><td>5 Bed+</td><td>$379+</td></tr>
+        </tbody>
+      </table>
+      <div class="includes-list">
+        <div class="includes-item"><span>✓</span> Everything in Standard</div>
+        <div class="includes-item"><span>✓</span> Baseboards</div>
+        <div class="includes-item"><span>✓</span> Door frames</div>
+        <div class="includes-item"><span>✓</span> Detailed bathrooms</div>
+        <div class="includes-item"><span>✓</span> Cabinet fronts</div>
+        <div class="includes-item"><span>✓</span> Heavy dust removal</div>
+        <div class="includes-item"><span>✓</span> Detailed kitchen scrub</div>
+      </div>
+      <div style="margin-top:1.25rem;"><a href="booking.html?service=deep" class="btn btn-blue btn-md">Book Deep Clean →</a></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- MOVE IN/OUT -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">🏡 Move-In / Move-Out Cleaning</div>
+      <div class="pricing-section-sub">Most thorough service · Perfect for tenants, landlords, and realtors</div>
+      <table class="price-table">
+        <thead><tr><th>Home Size</th><th style="text-align:right;">Price</th></tr></thead>
+        <tbody>
+          <tr><td>Studio / 1 Bed</td><td>$199</td></tr>
+          <tr><td>2 Bed</td><td>$229</td></tr>
+          <tr><td>3 Bed</td><td>$259</td></tr>
+          <tr><td>4 Bed</td><td>$299</td></tr>
+          <tr><td>5 Bed+</td><td>$349–$429</td></tr>
+        </tbody>
+      </table>
+      <div class="includes-list">
+        <div class="includes-item"><span>✓</span> Inside cabinets</div>
+        <div class="includes-item"><span>✓</span> Inside appliances</div>
+        <div class="includes-item"><span>✓</span> Baseboards</div>
+        <div class="includes-item"><span>✓</span> Bathroom deep clean</div>
+        <div class="includes-item"><span>✓</span> Interior windows (basic)</div>
+        <div class="includes-item"><span>✓</span> Wall spot cleaning</div>
+      </div>
+      <div style="margin-top:1.25rem;"><a href="booking.html?service=moveinout" class="btn btn-blue btn-md">Book Move-In/Out Clean →</a></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- RESET PACKAGE -->
+    <div class="pricing-section">
+      <div style="background:linear-gradient(135deg,#001f5c,#0057D9);border-radius:var(--radius-lg);padding:2rem;color:white;">
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.5rem;">
+          <div class="pricing-section-title" style="color:white;margin-bottom:0;">🌴 PalmShine Reset Package</div>
+          <span style="background:var(--pink);color:white;font-size:0.72rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:100px;font-family:'Poppins',sans-serif;">Signature Service</span>
+        </div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.8);margin-bottom:1.5rem;">Best for new clients · seasonal reset · hosting prep</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;">
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:1rem;text-align:center;"><div style="font-size:0.72rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;font-family:'Poppins',sans-serif;text-transform:uppercase;letter-spacing:0.05em;">Small Home</div><div style="font-size:1.8rem;font-weight:900;font-family:'Poppins',sans-serif;color:#B2F5EA;">$299</div></div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:1rem;text-align:center;"><div style="font-size:0.72rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;font-family:'Poppins',sans-serif;text-transform:uppercase;letter-spacing:0.05em;">Medium Home</div><div style="font-size:1.8rem;font-weight:900;font-family:'Poppins',sans-serif;color:#B2F5EA;">$349</div></div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:1rem;text-align:center;"><div style="font-size:0.72rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;font-family:'Poppins',sans-serif;text-transform:uppercase;letter-spacing:0.05em;">Large Home</div><div style="font-size:1.8rem;font-weight:900;font-family:'Poppins',sans-serif;color:#B2F5EA;">$399</div></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
+          <div style="background:rgba(255,255,255,0.15);border-radius:100px;padding:0.3rem 0.85rem;font-size:0.8rem;">✓ Deep clean</div>
+          <div style="background:rgba(255,255,255,0.15);border-radius:100px;padding:0.3rem 0.85rem;font-size:0.8rem;">✓ Fridge interior</div>
+          <div style="background:rgba(255,255,255,0.15);border-radius:100px;padding:0.3rem 0.85rem;font-size:0.8rem;">✓ Oven interior</div>
+          <div style="background:rgba(255,255,255,0.15);border-radius:100px;padding:0.3rem 0.85rem;font-size:0.8rem;">✓ Cabinet interiors</div>
+          <div style="background:rgba(255,255,255,0.15);border-radius:100px;padding:0.3rem 0.85rem;font-size:0.8rem;">✓ Baseboards</div>
+          <div style="background:rgba(255,255,255,0.15);border-radius:100px;padding:0.3rem 0.85rem;font-size:0.8rem;">✓ Detailed bathrooms</div>
+        </div>
+        <a href="booking.html?service=reset" class="btn btn-primary btn-md">Book Reset Package →</a>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- CLEAN CLUB -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">🌴 Clean Club Membership</div>
+      <div class="pricing-section-sub">Recurring cleans at member pricing · 20–30% cheaper than one-time · No contracts · Cancel anytime</div>
+      <div class="club-tabs">
+        <button class="club-tab active" onclick="switchClub('weekly',this)">Weekly</button>
+        <button class="club-tab" onclick="switchClub('biweekly',this)">Bi-Weekly (Most Popular)</button>
+        <button class="club-tab" onclick="switchClub('monthly',this)">Monthly</button>
+      </div>
+      <div id="club-weekly" class="club-panel active">
+        <table class="price-table"><thead><tr><th>Home Size</th><th style="text-align:right;">Weekly Price</th></tr></thead><tbody>
+          <tr><td>1–2 Bedroom</td><td>$109</td></tr>
+          <tr><td>3 Bedroom</td><td>$119</td></tr>
+          <tr><td>4 Bedroom</td><td>$129</td></tr>
+          <tr><td>5 Bedroom</td><td>$149</td></tr>
+        </tbody></table>
+      </div>
+      <div id="club-biweekly" class="club-panel">
+        <table class="price-table"><thead><tr><th>Home Size</th><th style="text-align:right;">Bi-Weekly Price</th></tr></thead><tbody>
+          <tr><td>1–2 Bedroom</td><td>$119</td></tr>
+          <tr><td>3 Bedroom</td><td>$129</td></tr>
+          <tr><td>4 Bedroom</td><td>$139</td></tr>
+          <tr><td>5 Bedroom</td><td>$159</td></tr>
+        </tbody></table>
+      </div>
+      <div id="club-monthly" class="club-panel">
+        <table class="price-table"><thead><tr><th>Home Size</th><th style="text-align:right;">Monthly Price</th></tr></thead><tbody>
+          <tr><td>1–2 Bedroom</td><td>$139</td></tr>
+          <tr><td>3 Bedroom</td><td>$159</td></tr>
+          <tr><td>4 Bedroom</td><td>$179</td></tr>
+          <tr><td>5 Bedroom</td><td>$199</td></tr>
+        </tbody></table>
+      </div>
+      <div class="includes-list">
+        <div class="includes-item"><span>✓</span> Priority scheduling</div>
+        <div class="includes-item"><span>✓</span> Rate locked in</div>
+        <div class="includes-item"><span>✓</span> Same cleaner when possible</div>
+        <div class="includes-item"><span>✓</span> Discounted add-ons</div>
+        <div class="includes-item"><span>✓</span> No contracts</div>
+        <div class="includes-item"><span>✓</span> Cancel anytime</div>
+      </div>
+      <div style="margin-top:1.25rem;"><a href="booking.html?service=cleanclub" class="btn btn-primary btn-md">Join Clean Club →</a></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- GARAGE -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">🚗 Garage Services</div>
+      <div class="pricing-section-sub">Organization, clean-outs, and full resets</div>
+      <div class="garage-grid">
+        <div>
+          <div style="font-size:0.88rem;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:0.75rem;color:var(--blue);">Garage Organization</div>
+          <table class="price-table"><thead><tr><th>Size</th><th style="text-align:right;">Price</th></tr></thead><tbody>
+            <tr><td>1 Car</td><td>$179</td></tr>
+            <tr><td>2 Car</td><td>$249</td></tr>
+            <tr><td>3 Car</td><td>$329</td></tr>
+          </tbody></table>
+        </div>
+        <div>
+          <div style="font-size:0.88rem;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:0.75rem;color:var(--blue);">Full Garage Clean-Out</div>
+          <table class="price-table"><thead><tr><th>Condition</th><th style="text-align:right;">Price</th></tr></thead><tbody>
+            <tr><td>Light</td><td>$299</td></tr>
+            <tr><td>Moderate</td><td>$399</td></tr>
+            <tr><td>Heavy</td><td>$499–$699+</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div style="margin-top:1.25rem;"><a href="booking.html?service=garage" class="btn btn-blue btn-md">Book Garage Service →</a></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- STORAGE -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">📦 Storage Unit Clean-Outs</div>
+      <div class="pricing-section-sub">Fast turnaround · Great for downsizing and estate clean-outs</div>
+      <table class="price-table"><thead><tr><th>Unit Size</th><th style="text-align:right;">Price</th></tr></thead><tbody>
+        <tr><td>5x5</td><td>$99</td></tr>
+        <tr><td>5x10</td><td>$129</td></tr>
+        <tr><td>10x10</td><td>$169</td></tr>
+        <tr><td>10x20</td><td>$229–$299</td></tr>
+      </tbody></table>
+      <div style="margin-top:1.25rem;"><a href="booking.html?service=storage" class="btn btn-blue btn-md">Book Storage Clean-Out →</a></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ADD-ONS -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">🪟 Add-Ons</div>
+      <div class="pricing-section-sub">Add to any service at booking · Clean Club members get discounted pricing</div>
+      <div class="addons-grid">
+        <div class="addon-card"><span class="addon-name">Interior Windows (up to 15)</span><span class="addon-price">$55</span></div>
+        <div class="addon-card"><span class="addon-name">Oven Interior</span><span class="addon-price">$25</span></div>
+        <div class="addon-card"><span class="addon-name">Fridge Interior</span><span class="addon-price">$25</span></div>
+        <div class="addon-card"><span class="addon-name">Appliance Bundle</span><span class="addon-price">$45</span></div>
+        <div class="addon-card"><span class="addon-name">Inside Cabinets</span><span class="addon-price">$50–$80</span></div>
+        <div class="addon-card"><span class="addon-name">Laundry Fold</span><span class="addon-price">$25</span></div>
+        <div class="addon-card"><span class="addon-name">Pet Hair Removal</span><span class="addon-price">$25</span></div>
+        <div class="addon-card"><span class="addon-name">Organization</span><span class="addon-price">$35/hr</span></div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PREMIUM -->
+    <div class="pricing-section">
+      <div class="pricing-section-title">⚡ Premium Upgrades</div>
+      <div class="premium-grid">
+        <div class="premium-card"><div class="premium-name">Same Day Booking</div><div class="premium-price">+$40</div></div>
+        <div class="premium-card"><div class="premium-name">Heavy Condition Home</div><div class="premium-price">+$40–$120</div></div>
+        <div class="premium-card"><div class="premium-name">Holiday Clean</div><div class="premium-price">+$50</div></div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FAQ -->
+    <div class="pricing-section">
+      <div class="pricing-section-title" style="font-size:1.1rem;">Common Questions</div>
+      <div style="margin-top:1rem;">
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to be home during the clean? <span class="faq-icon">+</span></button><div class="faq-a">No — most clients aren't home. Just provide access instructions and we'll handle everything. Your home will be locked up when we leave.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the 24-Hour Shine Guarantee work? <span class="faq-icon">+</span></button><div class="faq-a">If you're not happy with any part of your clean, contact us within 24 hours and we'll send a team back to make it right — at no extra charge. No questions asked.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel or reschedule? <span class="faq-icon">+</span></button><div class="faq-a">Yes — we ask for at least 24 hours notice. Clean Club members can reschedule through their customer portal anytime.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="faq-icon">+</span></button><div class="faq-a">All major credit and debit cards. Clean Club members are billed automatically after each clean.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there really no contract for Clean Club? <span class="faq-icon">+</span></button><div class="faq-a">Correct — no contracts. Cancel anytime through your customer portal or by contacting us. We keep members because of results, not locked-in agreements.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sticky-book">
+  <a href="booking.html" class="btn btn-primary btn-lg" style="box-shadow:0 8px 32px rgba(233,30,99,0.45);">Book Now →</a>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/app.js"></script>
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+  if (!isOpen) { answer.classList.add('open'); icon.textContent = '−'; }
+}
+function switchClub(id, el) {
+  document.querySelectorAll('.club-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.club-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('club-' + id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>

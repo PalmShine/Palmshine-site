@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login – PalmShine</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="portal-wrap">
+  <div class="portal-card">
+    <div class="portal-logo">
+      <div class="nav-logo" style="font-size:1.8rem;">Palm<span>Shine</span></div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-top:0.4rem;">Trusted by Homes, Loved by Families</p>
+    </div>
+    <div class="portal-tabs">
+      <button class="portal-tab active" id="tab-customer" onclick="switchTab('customer')">Customer</button>
+      <button class="portal-tab" id="tab-employee" onclick="switchTab('employee')">Employee</button>
+    </div>
+
+    <div id="panel-customer">
+      <div class="portal-title">Welcome Back</div>
+      <p class="portal-sub" style="margin-bottom:1.5rem;">Log in to manage your account, view upcoming cleans, and make payments.</p>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" />
+      </div>
+      <a class="portal-forgot" href="#">Forgot password?</a>
+      <button class="btn btn-blue btn-md" style="width:100%;justify-content:center;margin-bottom:1rem;" onclick="goToDashboard('customer')">Log In to My Account</button>
+      <div class="portal-divider">or</div>
+      <p style="text-align:center;font-size:0.85rem;color:var(--muted);">New customer? <a href="booking.html" style="color:var(--blue);font-weight:600;">Book your first clean →</a></p>
+    </div>
+
+    <div id="panel-employee" style="display:none;">
+      <div class="portal-title">Employee Portal</div>
+      <p class="portal-sub" style="margin-bottom:1.5rem;">Log in to view your schedule, set availability, and access your paystubs.</p>
+      <div class="form-group">
+        <label>Employee Email</label>
+        <input type="email" placeholder="yourname@palmshine.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" />
+      </div>
+      <a class="portal-forgot" href="#">Forgot password?</a>
+      <button class="btn btn-blue btn-md" style="width:100%;justify-content:center;" onclick="goToDashboard('employee')">Log In</button>
+      <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:1.25rem;">Need access? Contact management at <a href="mailto:management@palmshine.com" style="color:var(--blue);">management@palmshine.com</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+if (params.get('type') === 'employee') switchTabImmediate('employee');
+
+function switchTab(type) {
+  document.getElementById('tab-customer').classList.toggle('active', type === 'customer');
+  document.getElementById('tab-employee').classList.toggle('active', type === 'employee');
+  document.getElementById('panel-customer').style.display = type === 'customer' ? 'block' : 'none';
+  document.getElementById('panel-employee').style.display = type === 'employee' ? 'block' : 'none';
+}
+function switchTabImmediate(type) { switchTab(type); }
+function goToDashboard(type) {
+  window.location.href = type === 'employee' ? 'dashboard-employee.html' : 'dashboard-customer.html';
+}
+</script>
+</body>
+</html>

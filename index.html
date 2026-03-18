@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PalmShine – Trusted Home Cleaning | St. Lucie & Martin County, FL</title>
+<meta name="description" content="Professional residential cleaning serving St. Lucie and Martin County, Florida. Book your $99 intro clean today.">
+<link rel="stylesheet" href="css/style.css" />
+<style>
+.hero-wrap { background: linear-gradient(135deg, #001f5c 0%, #0044b0 50%, #0066ff 100%); }
+.hero { max-width: 1120px; margin: 0 auto; padding: 6rem 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+@media(max-width:768px){ .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem 3rem; } .hero-visual { display: none; } }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(178,245,234,0.15); border: 1px solid rgba(178,245,234,0.35); color: #B2F5EA; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.25rem; text-transform: uppercase; font-family: 'Raleway', sans-serif; }
+.hero h1 { font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 900; color: white; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+.hero h1 em { color: #B2F5EA; font-style: normal; }
+.hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.82); margin-bottom: 2rem; max-width: 480px; line-height: 1.8; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-visual { display: flex; flex-direction: column; gap: 1rem; }
+.hero-stat-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(4px); }
+.hero-stat-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #B2F5EA; font-family: 'Raleway', sans-serif; margin-bottom: 0.4rem; }
+.hero-stat-value { font-size: 1.8rem; font-weight: 900; color: white; font-family: 'Poppins', sans-serif; line-height: 1; }
+.hero-stat-sub { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-top: 0.3rem; }
+.hero-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.service-card { background: white; border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; transition: all 0.2s; position: relative; overflow: hidden; }
+.service-card-stripe { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), #B2F5EA); opacity: 0; transition: opacity 0.2s; }
+.service-card:hover { box-shadow: var(--shadow-lg); border-color: var(--blue); transform: translateY(-3px); }
+.service-card:hover .service-card-stripe { opacity: 1; }
+
+.offer-band { background: var(--pink); color: white; text-align: center; padding: 4rem 2rem; }
+.offer-price-big { font-size: clamp(4rem, 10vw, 6rem); font-weight: 900; line-height: 1; font-family: 'Poppins', sans-serif; }
+.offer-price-big sup { font-size: 2rem; vertical-align: top; padding-top: 1.2rem; display: inline-block; }
+
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.review-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+.stars { color: #f59e0b; letter-spacing: 1px; margin-bottom: 0.75rem; font-size: 1rem; }
+.review-text { font-size: 0.92rem; color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; font-style: italic; }
+.reviewer { display: flex; align-items: center; gap: 0.75rem; }
+.reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; font-family: 'Poppins', sans-serif; }
+.reviewer-name { font-size: 0.88rem; font-weight: 700; font-family: 'Poppins', sans-serif; }
+.reviewer-loc { font-size: 0.78rem; color: var(--muted); }
+
+.cta-band { background: linear-gradient(135deg, #001f5c, #0057D9); color: white; text-align: center; padding: 5rem 2rem; }
+.cta-band h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 1rem; }
+.cta-band p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto 2rem; }
+</style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">✦ Serving St. Lucie &amp; Martin County, FL</div>
+      <h1>Your Home,<br><em>Spotlessly</em> Clean.</h1>
+      <p class="hero-desc">Professional residential cleaning that actually shows up, does the job right, and backs it up with a 24-Hour Shine Guarantee. No contracts. No stress.</p>
+      <div class="hero-actions">
+        <a href="booking.html" class="btn btn-primary btn-xl">Book My $99 Intro Clean →</a>
+        <a href="services.html" class="btn btn-outline btn-xl">See Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat-card">
+        <div class="hero-stat-label">Intro Offer</div>
+        <div class="hero-stat-value">$99</div>
+        <div class="hero-stat-sub">First clean · No contracts · No hidden fees</div>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat-card">
+          <div class="hero-stat-label">Guarantee</div>
+          <div class="hero-stat-value">24-HR</div>
+          <div class="hero-stat-sub">Shine Guarantee</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-label">Standard</div>
+          <div class="hero-stat-value">50-PT</div>
+          <div class="hero-stat-sub">Shine Checklist</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-dot"></div> Insured &amp; Background-Checked</div>
+  <div class="trust-item"><div class="trust-dot"></div> 24-Hour Shine Guarantee</div>
+  <div class="trust-item"><div class="trust-dot"></div> 50-Point Shine Standard</div>
+  <div class="trust-item"><div class="trust-dot"></div> No Contracts Required</div>
+  <div class="trust-item"><div class="trust-dot"></div> St. Lucie &amp; Martin County</div>
+</div>
+
+<!-- SERVICES PREVIEW -->
+<div class="section" style="background:var(--off-white);">
+  <div class="container">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Cleaning Done the Right Way</h2>
+    <p class="section-sub">Every visit follows our 50-Point Shine Standard — nothing skipped, nothing missed.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-card-stripe"></div>
+        <div class="card-icon">🏠</div>
+        <div class="card-title">Standard Clean</div>
+        <div class="card-text">Full home clean covering all rooms, bathrooms, kitchen, and living areas using our 50-Point checklist.</div>
+        <div style="margin-top:1rem;"><span class="badge badge-blue">Most Popular</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-stripe"></div>
+        <div class="card-icon">✨</div>
+        <div class="card-title">Deep Clean</div>
+        <div class="card-text">Top-to-bottom intensive clean — baseboards, inside appliances, cabinet fronts, and every hidden corner.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-stripe"></div>
+        <div class="card-icon">🔁</div>
+        <div class="card-title">Clean Club Membership</div>
+        <div class="card-text">Recurring weekly or bi-weekly cleans at a locked-in rate. Consistency without the hassle.</div>
+        <div style="margin-top:1rem;"><span class="badge badge-pink">Best Value</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-stripe"></div>
+        <div class="card-icon">📦</div>
+        <div class="card-title">Move-In / Move-Out</div>
+        <div class="card-text">Detailed clean before you settle in or after you move on — so every chapter starts fresh.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="services.html" class="btn btn-outline-blue btn-md">View All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- $99 OFFER BAND -->
+<div class="offer-band">
+  <div class="container-sm">
+    <div class="section-tag" style="color:rgba(255,255,255,0.7);">Limited Intro Offer</div>
+    <div class="offer-price-big"><sup>$</sup>99</div>
+    <h2 style="font-size:1.6rem;margin:0.75rem 0 0.5rem;font-weight:800;">Your First Clean, Priced to Win You Over</h2>
+    <p style="color:rgba(255,255,255,0.85);max-width:520px;margin:0 auto 2rem;font-size:0.95rem;">Experience the full PalmShine standard. Not in love with the results? We come back within 24 hours and make it right.</p>
+    <a href="booking.html" class="btn btn-outline btn-xl">Claim My $99 Clean →</a>
+  </div>
+</div>
+
+<!-- WHY PALMSHINE -->
+<div class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-tag">Our Promise</div>
+      <h2 class="section-title">Why Families Choose PalmShine</h2>
+    </div>
+    <div class="why-grid">
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">🛡️</div>
+        <div class="card-title">24-Hour Shine Guarantee</div>
+        <div class="card-text">Not satisfied? We return within 24 hours and make it right. No arguments.</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">📋</div>
+        <div class="card-title">50-Point Shine Standard</div>
+        <div class="card-text">Our detailed checklist ensures nothing is ever skipped or forgotten.</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">✅</div>
+        <div class="card-title">Vetted &amp; Insured Team</div>
+        <div class="card-text">Background-checked, trained, and fully insured — trust who's in your home.</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">📅</div>
+        <div class="card-title">Flexible Scheduling</div>
+        <div class="card-text">Book when it works for you. Weekly, bi-weekly, or one-time. No contracts.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="section" style="background:var(--off-white);">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-tag">Real Clients</div>
+      <h2 class="section-title">Don't Take Our Word For It</h2>
+      <p class="section-sub">Families across the Treasure Coast trust PalmShine to keep their homes spotless.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"I've tried three different cleaning services and PalmShine is the only one that actually does what they promise. My house has never looked this good."</div>
+        <div class="reviewer"><div class="reviewer-avatar">JM</div><div><div class="reviewer-name">Jessica M.</div><div class="reviewer-loc">Port St. Lucie, FL</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Booked the $99 intro clean and immediately signed up for the Clean Club. The attention to detail is unreal — they got spots I didn't even know existed."</div>
+        <div class="reviewer"><div class="reviewer-avatar">TR</div><div><div class="reviewer-name">Tasha R.</div><div class="reviewer-loc">Stuart, FL</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Responsive, professional, and thorough. I work from home and need my space clean without disruption — PalmShine gets it done every time."</div>
+        <div class="reviewer"><div class="reviewer-avatar">DK</div><div><div class="reviewer-name">David K.</div><div class="reviewer-loc">Jensen Beach, FL</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="cta-band">
+  <h2>Ready for a Spotless Home?</h2>
+  <p>Book your $99 intro clean today. No contracts, no stress — just a home you're proud to walk into.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="booking.html" class="btn btn-primary btn-xl">Book Now →</a>
+    <a href="contact.html" class="btn btn-outline btn-xl">Get In Touch</a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

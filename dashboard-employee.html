@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Employee Portal – PalmShine</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+.schedule-item { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 0.85rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; }
+.schedule-date { font-size: 0.9rem; font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 0.3rem; }
+.schedule-address { font-size: 0.82rem; color: var(--muted); }
+.schedule-type { font-size: 0.78rem; font-weight: 600; color: var(--blue); }
+.availability-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-top: 1rem; }
+@media(max-width:600px){ .availability-grid { grid-template-columns: repeat(4, 1fr); } }
+.day-toggle { background: var(--off-white); border: 1.5px solid var(--border); border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; cursor: pointer; transition: all 0.18s; }
+.day-toggle.available { background: #d1fae5; border-color: #10b981; }
+.day-toggle.unavailable { background: #fee2e2; border-color: #ef4444; }
+.day-toggle .day-name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; font-family: 'Poppins', sans-serif; }
+.day-toggle .day-status { font-size: 0.68rem; margin-top: 0.2rem; }
+.paystub-row { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.paystub-row:last-child { border-bottom: none; }
+.paystub-amount { font-weight: 800; font-family: 'Poppins', sans-serif; color: var(--blue); }
+.section-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; }
+.section-card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; }
+</style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:0.5rem;">
+      <div class="nav-logo" style="font-size:1.2rem;">Palm<span style="color:#E91E63;">Shine</span></div>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.25rem;">Employee Portal</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">My Workspace</div>
+      <a href="#" class="active" onclick="showSection('dashboard',this)">🏠 Dashboard</a>
+      <a href="#" onclick="showSection('schedule',this)">📅 My Schedule</a>
+      <a href="#" onclick="showSection('availability',this)">✅ Set Availability</a>
+      <a href="#" onclick="showSection('paystubs',this)">💵 Paystubs</a>
+      <a href="#" onclick="showSection('profile',this)">👤 My Profile</a>
+      <div class="sidebar-section"></div>
+      <a href="login.html" style="color:rgba(255,100,100,0.7);">🚪 Log Out</a>
+    </nav>
+  </aside>
+
+  <main class="dash-content">
+    <!-- DASHBOARD -->
+    <div id="section-dashboard">
+      <div class="dash-header">
+        <h2>Hey, Sherra 👋</h2>
+        <p>Here's your week at a glance.</p>
+      </div>
+      <div class="dash-grid">
+        <div class="stat-card"><div class="stat-label">This Week</div><div class="stat-value">4</div><div class="stat-sub">Cleans scheduled</div></div>
+        <div class="stat-card"><div class="stat-label">Next Clean</div><div class="stat-value" style="font-size:1.2rem;">Mon Apr 1</div><div class="stat-sub">9:00 AM · Standard Clean</div></div>
+        <div class="stat-card"><div class="stat-label">Hours This Week</div><div class="stat-value">18</div><div class="stat-sub">Estimated</div></div>
+        <div class="stat-card"><div class="stat-label">Last Paystub</div><div class="stat-value" style="color:var(--success);">$412</div><div class="stat-sub">Week of Mar 17</div></div>
+      </div>
+      <div class="section-card">
+        <h3>Today's Assignment</h3>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.25rem;">
+          <div style="font-size:1rem;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:0.4rem;">Monday, April 1 · 9:00 AM</div>
+          <div style="font-size:0.9rem;color:var(--text);margin-bottom:0.3rem;">📍 456 Palm Ave, Stuart, FL 34994</div>
+          <div style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Standard Clean · 3 bed / 2 bath · ~2.5 hrs</div>
+          <div style="font-size:0.82rem;color:var(--blue);font-weight:600;">Client note: "Dog named Max will be home — friendly, just ignore him."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div id="section-schedule" style="display:none;">
+      <div class="dash-header"><h2>My Schedule</h2><p>Your upcoming cleaning assignments.</p></div>
+      <div class="section-card">
+        <h3>This Week</h3>
+        <div class="schedule-item">
+          <div><div class="schedule-date">Monday, April 1 · 9:00 AM</div><div class="schedule-address">456 Palm Ave, Stuart, FL 34994</div><div class="schedule-type">Standard Clean · ~2.5 hrs</div></div>
+          <span class="badge badge-mint">Confirmed</span>
+        </div>
+        <div class="schedule-item">
+          <div><div class="schedule-date">Wednesday, April 3 · 10:00 AM</div><div class="schedule-address">789 Ocean Dr, Jensen Beach, FL 34957</div><div class="schedule-type">Deep Clean · ~4 hrs</div></div>
+          <span class="badge badge-mint">Confirmed</span>
+        </div>
+        <div class="schedule-item">
+          <div><div class="schedule-date">Friday, April 5 · 9:00 AM</div><div class="schedule-address">123 River Rd, Port St. Lucie, FL 34983</div><div class="schedule-type">Standard Clean · ~2 hrs</div></div>
+          <span class="badge badge-mint">Confirmed</span>
+        </div>
+        <div class="schedule-item">
+          <div><div class="schedule-date">Friday, April 5 · 1:00 PM</div><div class="schedule-address">321 Lake Blvd, Port St. Lucie, FL 34986</div><div class="schedule-type">Standard Clean · ~2 hrs</div></div>
+          <span class="badge badge-yellow">Pending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AVAILABILITY -->
+    <div id="section-availability" style="display:none;">
+      <div class="dash-header"><h2>Set My Availability</h2><p>Let management know when you're available to work.</p></div>
+      <div class="section-card">
+        <h3>Weekly Availability</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Click each day to toggle your availability. Changes save automatically.</p>
+        <div class="availability-grid" id="availGrid">
+          <div class="day-toggle available" onclick="toggleDay(this)"><div class="day-name">Mon</div><div class="day-status" style="color:#065f46;">Available</div></div>
+          <div class="day-toggle available" onclick="toggleDay(this)"><div class="day-name">Tue</div><div class="day-status" style="color:#065f46;">Available</div></div>
+          <div class="day-toggle available" onclick="toggleDay(this)"><div class="day-name">Wed</div><div class="day-status" style="color:#065f46;">Available</div></div>
+          <div class="day-toggle available" onclick="toggleDay(this)"><div class="day-name">Thu</div><div class="day-status" style="color:#065f46;">Available</div></div>
+          <div class="day-toggle available" onclick="toggleDay(this)"><div class="day-name">Fri</div><div class="day-status" style="color:#065f46;">Available</div></div>
+          <div class="day-toggle unavailable" onclick="toggleDay(this)"><div class="day-name">Sat</div><div class="day-status" style="color:#991b1b;">Off</div></div>
+          <div class="day-toggle unavailable" onclick="toggleDay(this)"><div class="day-name">Sun</div><div class="day-status" style="color:#991b1b;">Off</div></div>
+        </div>
+      </div>
+      <div class="section-card">
+        <h3>Time Preferences</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Earliest Start Time</label><select><option>7:00 AM</option><option selected>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option></select></div>
+          <div class="form-group"><label>Latest Start Time</label><select><option>1:00 PM</option><option selected>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option></select></div>
+        </div>
+        <div class="form-group"><label>Notes for Management</label><textarea rows="2" placeholder="Any scheduling notes, preferred areas, limitations..."></textarea></div>
+        <button class="btn btn-blue btn-md" onclick="alert('Availability saved!')">Save Availability</button>
+      </div>
+    </div>
+
+    <!-- PAYSTUBS -->
+    <div id="section-paystubs" style="display:none;">
+      <div class="dash-header"><h2>Paystubs</h2><p>Your earnings history.</p></div>
+      <div class="section-card">
+        <h3>Payment History</h3>
+        <div class="paystub-row"><div><div style="font-weight:600;">Week of March 17, 2025</div><div style="font-size:0.78rem;color:var(--muted);">4 cleans · 16 hrs</div></div><div style="text-align:right;"><div class="paystub-amount">$412.00</div><a href="#" style="font-size:0.75rem;color:var(--blue);" onclick="alert('PDF download coming soon!')">Download PDF</a></div></div>
+        <div class="paystub-row"><div><div style="font-weight:600;">Week of March 10, 2025</div><div style="font-size:0.78rem;color:var(--muted);">5 cleans · 20 hrs</div></div><div style="text-align:right;"><div class="paystub-amount">$515.00</div><a href="#" style="font-size:0.75rem;color:var(--blue);" onclick="alert('PDF download coming soon!')">Download PDF</a></div></div>
+        <div class="paystub-row"><div><div style="font-weight:600;">Week of March 3, 2025</div><div style="font-size:0.78rem;color:var(--muted);">3 cleans · 12 hrs</div></div><div style="text-align:right;"><div class="paystub-amount">$309.00</div><a href="#" style="font-size:0.75rem;color:var(--blue);" onclick="alert('PDF download coming soon!')">Download PDF</a></div></div>
+        <div class="paystub-row"><div><div style="font-weight:600;">Week of February 24, 2025</div><div style="font-size:0.78rem;color:var(--muted);">4 cleans · 17 hrs</div></div><div style="text-align:right;"><div class="paystub-amount">$438.50</div><a href="#" style="font-size:0.75rem;color:var(--blue);" onclick="alert('PDF download coming soon!')">Download PDF</a></div></div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);">Questions about your pay? Contact management at <a href="mailto:management@palmshine.com" style="color:var(--blue);">management@palmshine.com</a> or (772) 877-5787.</p>
+    </div>
+
+    <!-- PROFILE -->
+    <div id="section-profile" style="display:none;">
+      <div class="dash-header"><h2>My Profile</h2><p>Update your personal information.</p></div>
+      <div class="section-card">
+        <h3>Personal Information</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" value="Sherra" /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" value="Williams" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone</label><input type="tel" value="(772) 555-0200" /></div>
+          <div class="form-group"><label>Email</label><input type="email" value="sherra@palmshine.com" /></div>
+        </div>
+        <div class="form-group"><label>Home Address</label><input type="text" value="789 Oak St, Port St. Lucie, FL" /></div>
+        <button class="btn btn-blue btn-md" onclick="alert('Profile updated!')">Save Changes</button>
+      </div>
+      <div class="section-card">
+        <h3>Change Password</h3>
+        <div class="form-group"><label>Current Password</label><input type="password" placeholder="••••••••" /></div>
+        <div class="form-group"><label>New Password</label><input type="password" placeholder="••••••••" /></div>
+        <div class="form-group"><label>Confirm New Password</label><input type="password" placeholder="••••••••" /></div>
+        <button class="btn btn-outline-blue btn-md" onclick="alert('Password updated!')">Update Password</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+function showSection(id, el) {
+  document.querySelectorAll('[id^="section-"]').forEach(s => s.style.display = 'none');
+  document.getElementById('section-' + id).style.display = 'block';
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+function toggleDay(el) {
+  const isAvail = el.classList.contains('available');
+  el.classList.toggle('available', !isAvail);
+  el.classList.toggle('unavailable', isAvail);
+  el.querySelector('.day-status').textContent = isAvail ? 'Off' : 'Available';
+  el.querySelector('.day-status').style.color = isAvail ? '#991b1b' : '#065f46';
+}
+</script>
+</body>
+</html>

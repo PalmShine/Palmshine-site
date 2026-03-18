@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us – PalmShine</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+.about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+@media(max-width:768px){ .about-story { grid-template-columns: 1fr; } }
+.about-image-block { background: linear-gradient(135deg, #001f5c, #0057D9); border-radius: 24px; padding: 3rem; color: white; }
+.about-image-block h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+.about-image-block p { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.85); }
+.big-quote { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; font-style: italic; color: var(--blue); line-height: 1.5; border-left: 4px solid var(--pink); padding-left: 1.5rem; margin: 2rem 0; }
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.value-card { background: var(--off-white); border-radius: var(--radius); padding: 1.5rem; border-left: 4px solid var(--blue); }
+.value-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--blue); font-family: 'Poppins', sans-serif; }
+.value-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+.team-area { background: var(--off-white); }
+.team-note { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; max-width: 680px; margin: 0 auto; text-align: center; }
+.team-note h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.team-note p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+</style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="page-hero">
+  <h1>About PalmShine</h1>
+  <p>We're more than a cleaning company — we're a team that takes pride in the homes we care for.</p>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="about-story">
+      <div>
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">Built on Trust,<br>Driven by Standards</h2>
+        <p style="color:var(--muted);line-height:1.85;margin-bottom:1rem;">PalmShine was founded with one simple belief: every family deserves to come home to a clean, comfortable space — without the stress of doing it themselves or wondering if the job was actually done right.</p>
+        <p style="color:var(--muted);line-height:1.85;margin-bottom:1rem;">We set out to build a cleaning company that didn't just clean — but showed up consistently, communicated clearly, and delivered results that made people want to tell their friends.</p>
+        <div class="big-quote">"Trusted by Homes,<br>Loved by Families."</div>
+        <p style="color:var(--muted);line-height:1.85;">That's not just a tagline — it's the standard we hold ourselves to every single time we walk through your door.</p>
+      </div>
+      <div class="about-image-block">
+        <div style="font-size:3rem;margin-bottom:1.25rem;">🏠</div>
+        <h3>Serving the Treasure Coast</h3>
+        <p>We proudly serve residential clients across St. Lucie and Martin County, Florida — from Port St. Lucie to Stuart to Jensen Beach and beyond.</p>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.2);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem;">
+            <div><div style="font-size:2rem;font-weight:900;font-family:'Poppins',sans-serif;color:#B2F5EA;">50</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.7);">Point Shine Standard</div></div>
+            <div><div style="font-size:2rem;font-weight:900;font-family:'Poppins',sans-serif;color:#B2F5EA;">24hr</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.7);">Shine Guarantee</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="background:var(--off-white);">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-tag">What We Stand For</div>
+      <h2 class="section-title">Our Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <h4>Consistency</h4>
+        <p>We show up on time, every time — and deliver the same high standard whether it's your first clean or your fiftieth.</p>
+      </div>
+      <div class="value-card" style="border-left-color:var(--pink);">
+        <h4>Accountability</h4>
+        <p>If something isn't right, we own it and fix it fast. That's what the 24-Hour Shine Guarantee is all about.</p>
+      </div>
+      <div class="value-card">
+        <h4>Transparency</h4>
+        <p>No hidden fees, no surprise charges. You know what you're getting before we ever show up at your door.</p>
+      </div>
+      <div class="value-card" style="border-left-color:var(--pink);">
+        <h4>Community</h4>
+        <p>We're local — and we care about the families and neighborhoods we serve across the Treasure Coast.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section team-area">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2.5rem;">
+      <div class="section-tag">Our Team</div>
+      <h2 class="section-title">People You Can Trust in Your Home</h2>
+    </div>
+    <div class="team-note">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">🤝</div>
+      <h3>Every PalmShine team member is:</h3>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;margin:1.25rem 0;text-align:left;">
+        <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.92rem;"><span style="color:var(--success);font-weight:700;">✓</span> Background-checked before their first clean</div>
+        <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.92rem;"><span style="color:var(--success);font-weight:700;">✓</span> Trained on our 50-Point Shine Standard</div>
+        <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.92rem;"><span style="color:var(--success);font-weight:700;">✓</span> Covered under our business insurance policy</div>
+        <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.92rem;"><span style="color:var(--success);font-weight:700;">✓</span> Held to consistent quality standards on every visit</div>
+      </div>
+      <p>We take who we send to your home seriously. Your trust means everything to us.</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:linear-gradient(135deg,#001f5c,#0057D9);color:white;text-align:center;padding:4rem 2rem;">
+  <div class="container-sm">
+    <h2 style="font-size:2rem;font-weight:900;margin-bottom:0.75rem;">Ready to Experience the PalmShine Difference?</h2>
+    <p style="color:rgba(255,255,255,0.82);margin-bottom:2rem;">Book your $99 intro clean and see for yourself why families across the Treasure Coast love coming home.</p>
+    <a href="booking.html" class="btn btn-primary btn-xl">Book My First Clean →</a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

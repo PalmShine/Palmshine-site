@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cleaning Services – PalmShine</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+.services-list { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
+.service-item { display: grid; grid-template-columns: 80px 1fr auto; gap: 1.5rem; align-items: start; background: white; border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: all 0.2s; }
+.service-item:hover { border-color: var(--blue); box-shadow: var(--shadow-lg); }
+@media(max-width:640px){ .service-item { grid-template-columns: 1fr; } .service-item-action { display: none; } }
+.service-item-icon { font-size: 2.5rem; }
+.service-item-name { font-size: 1.2rem; font-weight: 800; font-family: 'Poppins', sans-serif; margin-bottom: 0.5rem; }
+.service-item-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+.checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+@media(max-width:500px){ .checklist { grid-template-columns: 1fr; } }
+.checklist-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text); }
+.checklist-item span { color: var(--success); font-weight: 700; }
+.shine-standard { background: linear-gradient(135deg, #001f5c, #0057D9); color: white; border-radius: 20px; padding: 2.5rem; margin-top: 3rem; }
+.shine-standard h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+.shine-standard p { color: rgba(255,255,255,0.82); font-size: 0.92rem; margin-bottom: 1.5rem; }
+.shine-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+.shine-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.9); }
+.shine-item strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #B2F5EA; margin-bottom: 0.3rem; font-family: 'Raleway', sans-serif; }
+</style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="page-hero">
+  <h1>Our Cleaning Services</h1>
+  <p>Every service follows our 50-Point Shine Standard — so nothing is ever skipped, rushed, or forgotten.</p>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="services-list">
+
+      <div class="service-item">
+        <div class="service-item-icon">🏠</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+            <div class="service-item-name">Standard Clean</div>
+            <span class="badge badge-blue">Most Popular</span>
+          </div>
+          <div class="service-item-desc">Our foundational service — a thorough clean of your entire home using our 50-Point Shine Standard. Perfect for regular maintenance and keeping your space consistently fresh.</div>
+          <div class="checklist">
+            <div class="checklist-item"><span>✓</span> All bedrooms dusted &amp; vacuumed</div>
+            <div class="checklist-item"><span>✓</span> Bathrooms scrubbed &amp; sanitized</div>
+            <div class="checklist-item"><span>✓</span> Kitchen surfaces wiped down</div>
+            <div class="checklist-item"><span>✓</span> Floors mopped or vacuumed</div>
+            <div class="checklist-item"><span>✓</span> Living areas tidied &amp; dusted</div>
+            <div class="checklist-item"><span>✓</span> Trash emptied throughout</div>
+          </div>
+        </div>
+        <div class="service-item-action">
+          <a href="booking.html" class="btn btn-blue btn-md">Book Now</a>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">✨</div>
+        <div>
+          <div class="service-item-name">Deep Clean</div>
+          <div class="service-item-desc">Top-to-bottom intensive cleaning that goes well beyond the surface. Ideal for first-time clients, spring cleaning, or homes that haven't been professionally cleaned in a while.</div>
+          <div class="checklist">
+            <div class="checklist-item"><span>✓</span> Everything in Standard Clean</div>
+            <div class="checklist-item"><span>✓</span> Baseboards wiped down</div>
+            <div class="checklist-item"><span>✓</span> Inside oven &amp; microwave</div>
+            <div class="checklist-item"><span>✓</span> Inside refrigerator (upon request)</div>
+            <div class="checklist-item"><span>✓</span> Cabinet fronts cleaned</div>
+            <div class="checklist-item"><span>✓</span> Window sills &amp; blinds dusted</div>
+            <div class="checklist-item"><span>✓</span> Light fixtures &amp; ceiling fans</div>
+            <div class="checklist-item"><span>✓</span> Grout &amp; tile scrubbing</div>
+          </div>
+        </div>
+        <div class="service-item-action">
+          <a href="booking.html" class="btn btn-blue btn-md">Book Now</a>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🔁</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+            <div class="service-item-name">Clean Club Membership</div>
+            <span class="badge badge-pink">Best Value</span>
+          </div>
+          <div class="service-item-desc">Recurring weekly or bi-weekly cleans at a locked-in rate. Join the Clean Club and never think about booking again — we keep your home consistently clean on a schedule that works for you.</div>
+          <div class="checklist">
+            <div class="checklist-item"><span>✓</span> Weekly or bi-weekly schedule</div>
+            <div class="checklist-item"><span>✓</span> Locked-in member pricing</div>
+            <div class="checklist-item"><span>✓</span> Same team every visit</div>
+            <div class="checklist-item"><span>✓</span> Easy reschedule policy</div>
+            <div class="checklist-item"><span>✓</span> Priority booking</div>
+            <div class="checklist-item"><span>✓</span> No contracts — cancel anytime</div>
+          </div>
+        </div>
+        <div class="service-item-action">
+          <a href="clean-club.html" class="btn btn-primary btn-md">Learn More</a>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">📦</div>
+        <div>
+          <div class="service-item-name">Move-In / Move-Out Clean</div>
+          <div class="service-item-desc">Whether you're settling in somewhere new or handing back keys, we'll make sure the space is spotless. Every room, every corner — detailed and thorough.</div>
+          <div class="checklist">
+            <div class="checklist-item"><span>✓</span> All rooms cleaned top to bottom</div>
+            <div class="checklist-item"><span>✓</span> Inside all cabinets &amp; closets</div>
+            <div class="checklist-item"><span>✓</span> Inside all appliances</div>
+            <div class="checklist-item"><span>✓</span> Walls spot-cleaned</div>
+            <div class="checklist-item"><span>✓</span> All floors mopped &amp; vacuumed</div>
+            <div class="checklist-item"><span>✓</span> Bathrooms deep-scrubbed</div>
+          </div>
+        </div>
+        <div class="service-item-action">
+          <a href="booking.html" class="btn btn-blue btn-md">Book Now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 50 POINT STANDARD -->
+    <div class="shine-standard">
+      <h3>Our 50-Point Shine Standard</h3>
+      <p>Every clean we do follows a detailed 50-point checklist — so you always know exactly what's being done.</p>
+      <div class="shine-grid">
+        <div class="shine-item"><strong>Kitchen</strong>Counters, sink, stovetop, microwave exterior, cabinet fronts, floors</div>
+        <div class="shine-item"><strong>Bathrooms</strong>Toilet, tub/shower, sink, mirror, floors, fixtures sanitized</div>
+        <div class="shine-item"><strong>Bedrooms</strong>Dust all surfaces, vacuum, make beds, wipe mirrors &amp; furniture</div>
+        <div class="shine-item"><strong>Living Areas</strong>Dust furniture, vacuum upholstery, wipe surfaces, mop/vacuum floors</div>
+        <div class="shine-item"><strong>Throughout</strong>Empty trash, dust baseboards, clean light switches, wipe doors</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--off-white);text-align:center;padding:4rem 2rem;">
+  <div class="container-sm">
+    <div class="section-tag">Get Started</div>
+    <h2 class="section-title">Ready to Book?</h2>
+    <p class="section-sub" style="margin:0 auto 2rem;">Start with our $99 intro clean — no contracts, no risk. If it's not right, we make it right.</p>
+    <a href="booking.html" class="btn btn-primary btn-xl">Book My $99 Intro Clean →</a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

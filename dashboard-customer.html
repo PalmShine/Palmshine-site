@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Account – PalmShine</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+.upcoming-clean { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.clean-date { font-size: 1rem; font-weight: 700; font-family: 'Poppins', sans-serif; }
+.clean-type { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+.clean-status { font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 100px; }
+.status-confirmed { background: #d1fae5; color: #065f46; }
+.status-pending { background: #fef9c3; color: #854d0e; }
+.payment-row { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.payment-row:last-child { border-bottom: none; }
+.payment-amount { font-weight: 700; font-family: 'Poppins', sans-serif; }
+.payment-status-paid { color: var(--success); font-size: 0.78rem; font-weight: 700; }
+.payment-status-due { color: var(--pink); font-size: 0.78rem; font-weight: 700; }
+.section-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; }
+.section-card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text); }
+.pay-btn { background: var(--pink); color: white; border: none; border-radius: 100px; padding: 0.5rem 1.25rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: 'Raleway', sans-serif; }
+</style>
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:0.5rem;">
+      <div class="nav-logo" style="font-size:1.2rem;">Palm<span style="color:#E91E63;">Shine</span></div>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.25rem;">Customer Portal</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">My Account</div>
+      <a href="#" class="active" onclick="showSection('dashboard',this)">🏠 Dashboard</a>
+      <a href="#" onclick="showSection('upcoming',this)">📅 Upcoming Cleans</a>
+      <a href="#" onclick="showSection('payments',this)">💳 Payments</a>
+      <a href="#" onclick="showSection('profile',this)">👤 My Profile</a>
+      <div class="sidebar-section">Actions</div>
+      <a href="booking.html">➕ Book a Clean</a>
+      <a href="clean-club.html">🔁 Clean Club</a>
+      <a href="contact.html">✉️ Contact Us</a>
+      <div class="sidebar-section" style="margin-top:auto;"></div>
+      <a href="login.html" style="color:rgba(255,100,100,0.7);">🚪 Log Out</a>
+    </nav>
+  </aside>
+
+  <main class="dash-content">
+    <!-- DASHBOARD SECTION -->
+    <div id="section-dashboard">
+      <div class="dash-header">
+        <h2>Welcome back, Jane 👋</h2>
+        <p>Here's a look at your upcoming cleans and account status.</p>
+      </div>
+      <div class="dash-grid">
+        <div class="stat-card">
+          <div class="stat-label">Next Clean</div>
+          <div class="stat-value" style="font-size:1.2rem;">Apr 3</div>
+          <div class="stat-sub">Standard Clean · Confirmed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Membership</div>
+          <div class="stat-value" style="font-size:1.2rem;color:var(--pink);">Clean Club</div>
+          <div class="stat-sub">Bi-Weekly · Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Cleans</div>
+          <div class="stat-value">8</div>
+          <div class="stat-sub">Since January 2025</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Balance Due</div>
+          <div class="stat-value" style="color:var(--success);">$0</div>
+          <div class="stat-sub">All paid up 🎉</div>
+        </div>
+      </div>
+      <div class="section-card">
+        <h3>Next Upcoming Clean</h3>
+        <div class="upcoming-clean">
+          <div>
+            <div class="clean-date">Thursday, April 3, 2025</div>
+            <div class="clean-type">Standard Clean · Morning Window (8am–12pm)</div>
+            <div class="clean-type" style="margin-top:0.2rem;">123 Main St, Port St. Lucie, FL</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <span class="clean-status status-confirmed">Confirmed</span>
+            <button class="btn btn-outline-blue btn-sm" onclick="alert('Reschedule request sent! We\'ll confirm your new time within 24 hours.')">Reschedule</button>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;padding:1rem;">
+        <a href="booking.html" class="btn btn-primary btn-md">Book Another Clean</a>
+      </div>
+    </div>
+
+    <!-- UPCOMING SECTION -->
+    <div id="section-upcoming" style="display:none;">
+      <div class="dash-header"><h2>Upcoming Cleans</h2><p>Your scheduled cleaning appointments.</p></div>
+      <div class="section-card">
+        <h3>Scheduled Appointments</h3>
+        <div class="upcoming-clean">
+          <div><div class="clean-date">Thursday, April 3, 2025</div><div class="clean-type">Standard Clean · Morning (8am–12pm)</div></div>
+          <div style="display:flex;gap:0.75rem;align-items:center;"><span class="clean-status status-confirmed">Confirmed</span><button class="btn btn-outline-blue btn-sm" onclick="alert('Reschedule request sent!')">Reschedule</button></div>
+        </div>
+        <div class="upcoming-clean">
+          <div><div class="clean-date">Thursday, April 17, 2025</div><div class="clean-type">Standard Clean · Bi-Weekly Recurring</div></div>
+          <div style="display:flex;gap:0.75rem;align-items:center;"><span class="clean-status status-confirmed">Confirmed</span><button class="btn btn-outline-blue btn-sm" onclick="alert('Reschedule request sent!')">Reschedule</button></div>
+        </div>
+        <div class="upcoming-clean">
+          <div><div class="clean-date">Thursday, May 1, 2025</div><div class="clean-type">Standard Clean · Bi-Weekly Recurring</div></div>
+          <div style="display:flex;gap:0.75rem;align-items:center;"><span class="clean-status status-pending">Pending</span></div>
+        </div>
+      </div>
+      <a href="booking.html" class="btn btn-primary btn-md">Add Another Clean</a>
+    </div>
+
+    <!-- PAYMENTS SECTION -->
+    <div id="section-payments" style="display:none;">
+      <div class="dash-header"><h2>Payments</h2><p>Manage your payments and billing history.</p></div>
+      <div class="section-card">
+        <h3>Payment Method</h3>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="background:var(--off-white);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1.25rem;font-size:0.9rem;font-weight:600;">💳 Visa ending in 4242</div>
+            <span class="badge badge-mint">Default</span>
+          </div>
+          <button class="btn btn-outline-blue btn-sm" onclick="alert('Card update coming soon! Call us at (772) 877-5787 to update your payment method.')">Update Card</button>
+        </div>
+      </div>
+      <div class="section-card">
+        <h3>Make a Payment</h3>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-weight:700;font-family:'Poppins',sans-serif;">April 3 – Standard Clean</div><div style="font-size:0.82rem;color:var(--muted);">Due upon completion</div></div>
+            <div style="display:flex;align-items:center;gap:1rem;"><span style="font-weight:800;font-size:1.1rem;font-family:'Poppins',sans-serif;">$149</span><button class="pay-btn" onclick="alert('Redirecting to secure payment...')">Pay Now</button></div>
+          </div>
+        </div>
+        <p style="font-size:0.8rem;color:var(--muted);">Payments are processed securely. For questions about billing, contact us at (772) 877-5787.</p>
+      </div>
+      <div class="section-card">
+        <h3>Payment History</h3>
+        <div class="payment-row"><div><div style="font-weight:600;">March 20 – Standard Clean</div><div style="font-size:0.78rem;color:var(--muted);">Bi-Weekly Clean</div></div><div style="text-align:right;"><div class="payment-amount">$149</div><div class="payment-status-paid">Paid</div></div></div>
+        <div class="payment-row"><div><div style="font-weight:600;">March 6 – Standard Clean</div><div style="font-size:0.78rem;color:var(--muted);">Bi-Weekly Clean</div></div><div style="text-align:right;"><div class="payment-amount">$149</div><div class="payment-status-paid">Paid</div></div></div>
+        <div class="payment-row"><div><div style="font-weight:600;">February 20 – Standard Clean</div><div style="font-size:0.78rem;color:var(--muted);">Bi-Weekly Clean</div></div><div style="text-align:right;"><div class="payment-amount">$149</div><div class="payment-status-paid">Paid</div></div></div>
+        <div class="payment-row"><div><div style="font-weight:600;">January 15 – Intro Clean</div><div style="font-size:0.78rem;color:var(--muted);">First Clean Offer</div></div><div style="text-align:right;"><div class="payment-amount">$99</div><div class="payment-status-paid">Paid</div></div></div>
+      </div>
+    </div>
+
+    <!-- PROFILE SECTION -->
+    <div id="section-profile" style="display:none;">
+      <div class="dash-header"><h2>My Profile</h2><p>Update your account information and preferences.</p></div>
+      <div class="section-card">
+        <h3>Personal Information</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" value="Jane" /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" value="Smith" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone</label><input type="tel" value="(772) 555-0100" /></div>
+          <div class="form-group"><label>Email</label><input type="email" value="jane@email.com" /></div>
+        </div>
+        <div class="form-group"><label>Service Address</label><input type="text" value="123 Main St, Port St. Lucie, FL 34983" /></div>
+        <div class="form-group"><label>Access Instructions / Gate Code</label><textarea rows="2" placeholder="Any access notes for our team..."></textarea></div>
+        <button class="btn btn-blue btn-md" onclick="alert('Profile updated!')">Save Changes</button>
+      </div>
+      <div class="section-card">
+        <h3>Change Password</h3>
+        <div class="form-group"><label>Current Password</label><input type="password" placeholder="••••••••" /></div>
+        <div class="form-group"><label>New Password</label><input type="password" placeholder="••••••••" /></div>
+        <div class="form-group"><label>Confirm New Password</label><input type="password" placeholder="••••••••" /></div>
+        <button class="btn btn-outline-blue btn-md" onclick="alert('Password updated!')">Update Password</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+function showSection(id, el) {
+  document.querySelectorAll('[id^="section-"]').forEach(s => s.style.display = 'none');
+  document.getElementById('section-' + id).style.display = 'block';
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+</script>
+</body>
+</html>
