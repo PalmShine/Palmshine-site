@@ -291,40 +291,27 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   btn.disabled = true;
 
   const formData = {
-    first_name: this.first_name.value,
-    last_name: this.last_name.value,
-    email: this.email.value,
-    phone: this.phone.value,
-    address: this.address.value,
-    service_type: this.service_type.value,
-    home_size: this.home_size.value,
-    preferred_date: this.preferred_date.value,
-    preferred_time: this.preferred_time.value,
-    notes: this.notes.value,
+    first_name: this.querySelector('[name="first_name"]').value,
+    last_name: this.querySelector('[name="last_name"]').value,
+    email: this.querySelector('[name="email"]').value,
+    phone: this.querySelector('[name="phone"]').value,
+    address: this.querySelector('[name="address"]').value,
+    service_type: this.querySelector('[name="service_type"]').value,
+    home_size: this.querySelector('[name="home_size"]').value,
+    preferred_date: this.querySelector('[name="preferred_date"]').value,
+    preferred_time: this.querySelector('[name="preferred_time"]').value,
+    notes: this.querySelector('[name="notes"]').value,
     total: document.getElementById('hiddenTotal').value
   };
 
-try {
-    const res = await fetch('/.netlify/functions/submit-booking', {
+  try {
+    await fetch('/.netlify/functions/submit-booking', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     });
-    
-    if (res.ok) {
-      this.innerHTML = `<div style="text-align:center;padding:3rem;">
-        <div style="font-size:3rem;margin-bottom:1rem;">🎉</div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">Booking Request Received!</h3>
-        <p style="color:#64748b;line-height:1.8;max-width:420px;margin:0 auto;">We'll confirm your appointment within 24 hours.<br><br>Call <a href="tel:7728775787" style="color:#0057D9;font-weight:600;">(772) 877-5787</a></p>
-      </div>`;
-    } else {
-      throw new Error('Server error: ' + res.status);
-    }
+    window.location.href = 'thank-you.html';
   } catch(err) {
-    console.error('Booking error:', err);
-    this.innerHTML = `<div style="text-align:center;padding:3rem;">
-      <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
-      <h3 style="font-family:Poppins,sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">Booking Request Received!</h3>
-      <p style="color:#64748b;line-height:1.8;max-width:420px;margin:0 auto;">We'll confirm your appointment within 24 hours.<br><br>Call <a href="tel:7728775787" style="color:#0057D9;font-weight:600;">(772) 877-5787</a></p>
-    </div>`;
+    window.location.href = 'thank-you.html';
   }
+});
