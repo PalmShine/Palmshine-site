@@ -55,7 +55,7 @@
         <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.5rem;">Your total updates automatically as you make selections.</p>
 
         <form id="bookingForm">
-          <input type="hidden" name="total" id="hiddenTotal" value="" />
+          <input type="hidden" id="hiddenTotal" value="" />
 
           <!-- CONTACT -->
           <div class="form-section-title">1. Your Information</div>
@@ -291,21 +291,21 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   btn.disabled = true;
 
   const formData = {
-    first_name: this.querySelector('[name="first_name"]').value,
-    last_name: this.querySelector('[name="last_name"]').value,
-    email: this.querySelector('[name="email"]').value,
-    phone: this.querySelector('[name="phone"]').value,
-    address: this.querySelector('[name="address"]').value,
-    service_type: this.querySelector('[name="service_type"]').value,
-    home_size: this.querySelector('[name="home_size"]').value,
-    preferred_date: this.querySelector('[name="preferred_date"]').value,
-    preferred_time: this.querySelector('[name="preferred_time"]').value,
-    notes: this.querySelector('[name="notes"]').value,
+    first_name: document.querySelector('[name="first_name"]').value,
+    last_name: document.querySelector('[name="last_name"]').value,
+    email: document.querySelector('[name="email"]').value,
+    phone: document.querySelector('[name="phone"]').value,
+    address: document.querySelector('[name="address"]').value,
+    service_type: document.querySelector('[name="service_type"]:checked') ? document.querySelector('[name="service_type"]:checked').value : '',
+    home_size: document.getElementById('homeSizeSelect').value,
+    preferred_date: document.querySelector('[name="preferred_date"]').value,
+    preferred_time: document.querySelector('[name="preferred_time"]').value,
+    notes: document.querySelector('[name="notes"]').value,
     total: document.getElementById('hiddenTotal').value
   };
 
   try {
-    await fetch('/.netlify/functions/submit-booking', {
+    const res = await fetch('/.netlify/functions/submit-booking', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -315,3 +315,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     window.location.href = 'thank-you.html';
   }
 });
+</script>
+</body>
+</html>
