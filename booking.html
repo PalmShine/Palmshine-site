@@ -167,7 +167,7 @@
           </div>
           <div class="form-group"><label>Access Instructions / Notes</label><textarea name="notes" rows="3" placeholder="Gate code, pets, special areas to focus on..."></textarea></div>
 
-          <button type="submit" class="submit-btn" id="submitBtn">Confirm Booking · <span id="submitTotal">Select a service to see price</span></button>
+          <button type="button" class="submit-btn" id="submitBtn" onclick="handleBooking()">
           <p class="form-note" style="margin-top:0.75rem;">No payment collected here. We'll confirm your appointment and send a payment link within 24 hours. By booking you agree to our <a href="terms.html" style="color:var(--blue);">Terms &amp; Conditions</a>.</p>
         </form>
       </div>
@@ -284,8 +284,7 @@ if (preService) {
   if (opt) { opt.closest('.service-option').click(); }
 }
 
-document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+async function handleBooking() {
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Submitting...';
   btn.disabled = true;
@@ -296,7 +295,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     email: document.querySelector('[name="email"]').value,
     phone: document.querySelector('[name="phone"]').value,
     address: document.querySelector('[name="address"]').value,
-    service_type: document.querySelector('[name="service_type"]:checked') ? document.querySelector('[name="service_type"]:checked').value : '',
+    service_type: document.querySelector('[name="service_type"]:checked') ? document.querySelector('[name="service_type"]:checked').value : 'standard',
     home_size: document.getElementById('homeSizeSelect').value,
     preferred_date: document.querySelector('[name="preferred_date"]').value,
     preferred_time: document.querySelector('[name="preferred_time"]').value,
@@ -305,16 +304,12 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   };
 
   try {
-    const res = await fetch('/.netlify/functions/submit-booking', {
+    await fetch('/.netlify/functions/submit-booking', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     });
-    window.location.href = 'thank-you.html';
-  } catch(err) {
-    window.location.href = 'thank-you.html';
-  }
-});
-</script>
-</body>
-</html>
+  } catch(err) {}
+  
+  window.location.href = 'thank-you.html';
+}
